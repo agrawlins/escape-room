@@ -1,0 +1,16 @@
+.mainMenu {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menuButton {
+    height: 75px;
+    width: 200px;
+    font-size: x-large;
+    box-shadow: 0 0 10px antiquewhite,
+    0 0 20px antiquewhite;
+    border-radius: 37px;
+}

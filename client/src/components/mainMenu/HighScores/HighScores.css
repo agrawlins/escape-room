@@ -1,0 +1,73 @@
+.hsRoomList {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.hsRoomList::-webkit-scrollbar{
+  display: none;
+}
+
+.scoreCard {
+  display: flex;
+  margin: 20px;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 5px solid antiquewhite;
+  border-radius: 15px;
+  box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite;
+}
+
+.scoreCardList{
+    height: 400px;
+    overflow: scroll;
+}
+
+.scoreCardList::-webkit-scrollbar{
+  display: none;
+}
+
+.hsRoom > h1 {
+  text-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite;
+}
+
+.hsRoomHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.hsRoomImg {
+  height: 25vh;
+  width: 37vh;
+  border-radius: 15px;
+  box-shadow: 0 0 10px black, 0 0 20px black, 0 0 40px black;
+  transition: 0.1s ease-in;
+}
+
+.hsRoom:active {
+  box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite,
+    0 0 40px antiquewhite;
+  transition: 0.1s ease-in;
+}
+
+.hsRoomMenuButtonContainer {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hsRoomMenuButton {
+  height: 50px;
+  width: 100px;
+  font-size: x-large;
+  box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite;
+  border-radius: 37px;
+}

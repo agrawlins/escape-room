@@ -1,0 +1,35 @@
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container > button {
+    height: 75px;
+    width: 100%;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.auth-form {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.auth-form > input {
+    height: 75px;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.auth-form > button {
+    height: 75px;
+    border-radius: 15px;
+    font-size: x-large;
+    font-weight: bold;
+}

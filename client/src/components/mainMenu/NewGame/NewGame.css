@@ -1,0 +1,68 @@
+.newGame {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.roomList {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.roomList::-webkit-scrollbar {
+  display: none;
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.room > h1 {
+  text-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite;
+}
+
+.roomImg {
+  height: 25vh;
+  width: 37vh;
+  border-radius: 15px;
+  box-shadow: 0 0 10px black, 0 0 20px black, 0 0 40px black;
+  transition: 0.1s ease-in;
+}
+
+.roomDescription {
+  height: 20vh;
+  overflow: scroll;
+  background: linear-gradient(none, black);
+}
+
+.roomDescription::-webkit-scrollbar {
+  display: none;
+}
+
+.room:active {
+  box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite,
+    0 0 40px antiquewhite;
+  transition: 0.1s ease-in;
+}
+
+.roomMenuButtonContainer {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roomMenuButton {
+  height: 50px;
+  width: 100px;
+  font-size: x-large;
+  box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite;
+  border-radius: 37px;
+}

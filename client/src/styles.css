@@ -1,0 +1,12 @@
+body {
+    color: white;
+    background-color: #121212;;
+  }
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}

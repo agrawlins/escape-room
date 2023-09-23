@@ -21,6 +21,8 @@ const Room = (props) => {
     navigate("/ingame")
   };
 
+  console.log(currentRoom.description.length || "")
+
   return (
     <div>
       {toggle ? (
@@ -31,7 +33,11 @@ const Room = (props) => {
             alt={currentRoom.name}
             className="roomImg"
           />
-          <h2 className="roomDescription">{currentRoom.description}</h2>
+          <div className="roomDescriptionBox" >
+            <h2 className="roomDescription" style={{ animation: `scroll ${currentRoom.description.length / 10}s linear infinite` }}>
+              {currentRoom.description}
+              </h2>
+            </div>
           <div className="roomMenuButtonContainer">
             <button className="roomMenuButton" onClick={startGame}>
               Start

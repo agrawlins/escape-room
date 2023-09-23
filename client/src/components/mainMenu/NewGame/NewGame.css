@@ -36,15 +36,43 @@
   transition: 0.1s ease-in;
 }
 
-.roomDescription {
+.roomDescriptionBox {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
   height: 20vh;
-  overflow: scroll;
-  background: linear-gradient(none, black);
+  width: 37vh;
+  overflow: hidden;
+  position: relative;
 }
 
-.roomDescription::-webkit-scrollbar {
-  display: none;
+/* Add gradient overlays to the top and bottom */
+.roomDescriptionBox::before,
+.roomDescriptionBox::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  z-index: 2;
 }
+
+.roomDescriptionBox::before {
+  top: 0px;
+  background: linear-gradient(#121212, rgba(0, 0, 0, 0));
+}
+
+.roomDescriptionBox::after {
+  bottom: 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0), #121212);
+}
+
+
+.roomDescription {
+  width: 37vh;
+  position: relative;
+  text-shadow: 0 0 5px antiquewhite;
+}
+
 
 .room:active {
   box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite,
@@ -65,4 +93,13 @@
   font-size: x-large;
   box-shadow: 0 0 10px antiquewhite, 0 0 20px antiquewhite;
   border-radius: 37px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(80%); /* Start from below the div */
+  }
+  100% {
+    transform: translateY(-110%); /* Scroll to the top */
+  }
 }

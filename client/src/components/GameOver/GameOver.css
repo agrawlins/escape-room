@@ -1,0 +1,17 @@
+.gameOver {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gameOverHeader {
+    color: red;
+    text-shadow: 0 0 10px red,
+    0 0 20px red;
+}
+
+.gameOverText {
+    width: 37vh;
+}

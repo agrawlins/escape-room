@@ -18,13 +18,13 @@ const InGameNav = () => {
   const roomSelector = () => {
     switch (name.toLowerCase()) {
       case "abandoned cabin":
-        return <AbandonedCabin />;
+        return <AbandonedCabin victory={victoryFunction}/>;
       case "dark castle":
-        return <DarkCastle />;
+        return <DarkCastle victory={victoryFunction}/>;
       case "deep ocean":
-        return <DeepOcean />;
+        return <DeepOcean victory={victoryFunction}/>;
       case "office noir":
-        return <OfficeNoir />;
+        return <OfficeNoir victory={victoryFunction}/>;
     }
   };
 

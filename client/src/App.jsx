@@ -7,7 +7,6 @@ import MainMenu from "./components/mainMenu/MainMenu.jsx";
 import MainMenuNav from "./components/mainMenu/MainMenuNav.jsx";
 import PlaythroughProvider from "./context/PlaythroughProvider.jsx";
 import RoomProvider from "./context/RoomProvider.jsx";
-import GameProvider from "./context/GameLogicProvider.jsx";
 import InGameNav from "./components/InGame/InGameNav.jsx";
 import GameOver from "./components/GameOver/GameOver.jsx";
 import Victory from "./components/Victory/Victory.jsx";

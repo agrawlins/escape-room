@@ -21,8 +21,6 @@ const Room = (props) => {
     navigate("/ingame")
   };
 
-  console.log(currentRoom.description.length || "")
-
   return (
     <div>
       {toggle ? (

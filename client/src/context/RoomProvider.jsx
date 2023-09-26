@@ -20,11 +20,11 @@ const RoomProvider = (props) => {
     token: localStorage.getItem("token") || "",
     errMsg: "",
   };
+
   const [rooms, setRooms] = useState([]);
   const [currentRoom, setCurrentRoom] = useState({});
   const [currentHighScores, setCurrentHighScores] = useState([]);
   const [currentTime, setCurrentTime] = useState(currentRoom.time)
-
 
   const cleanState = () => {
     setCurrentRoom({
@@ -60,8 +60,6 @@ const RoomProvider = (props) => {
         cleanState,
         playthroughs,
         rooms,
-        // addRoom,
-        // getUserPlaythroughs,
         currentRoom,
         currentTime,
         setCurrentTime,
@@ -70,8 +68,6 @@ const RoomProvider = (props) => {
         getRoomPlaythroughs,
         currentHighScores,
         setCurrentHighScores,
-        // editPlaythrough,
-        // deleteRoom,
       }}
     >
       {props.children}

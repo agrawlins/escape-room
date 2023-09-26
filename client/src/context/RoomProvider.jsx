@@ -25,6 +25,9 @@ const RoomProvider = (props) => {
   const [currentRoom, setCurrentRoom] = useState({});
   const [currentHighScores, setCurrentHighScores] = useState([]);
   const [currentTime, setCurrentTime] = useState(currentRoom.time)
+ 
+
+  
 
   const cleanState = () => {
     setCurrentRoom({

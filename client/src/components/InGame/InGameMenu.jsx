@@ -2,19 +2,19 @@ import { useContext, useState } from "react";
 import { RoomContext } from "../../context/RoomProvider";
 
 const InGameMenu = (props) => {
-  const { currentRoom } = useContext(RoomContext);
+  const { currentRoom, } = useContext(RoomContext);
   const { name, objectives } = currentRoom;
 
-  const mappedObjectives = objectives.map((goal) => {
-    const [goalCompleted, setGoalCompleted] = useState(goal.completed);
+  const mappedObjectives = objectives?.map(goal => {
+    const [completed, setCompleted] = useState(goal.completed)
     return (
-      <>
-        <h2 style={{ color: goalCompleted ? "#00e600" : "white" }}>
+      <div key={goal.title}>
+        <h2 style={{ color: completed ? "#00e600" : "white" }}>
           {goal.title}
         </h2>
-      </>
+      </div>
     );
-  });
+  })
 
   return (
     <div className="inGameMenu">

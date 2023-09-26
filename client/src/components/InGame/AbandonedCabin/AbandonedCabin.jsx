@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Lockbox from "./Lockbox";
 import "./AbandonedCabin.css";
 import { useNavigate } from "react-router-dom";
+import { RoomContext } from "../../../context/RoomProvider";
 
 const AbandonedCabin = (props) => {
   const { victory } = props;
+  const { currentRoom, setCurrentRoom } = useContext(RoomContext);
   const [hasEscapeKey, setHasEscapeKey] = useState(false);
   const [hasVictimList, setHasVictimList] = useState(false);
   const [escapeBoxOpened, setEscapeBoxOpened] = useState(false);
@@ -21,7 +23,6 @@ const AbandonedCabin = (props) => {
   const [escapeBoxNum4, setEscapeBoxNum4] = useState(0);
   const navigate = useNavigate();
 
-
   const acquireMatches = () => {
     setHasMatches(true);
     alert("You've acquired a box of matches!");
@@ -30,15 +31,29 @@ const AbandonedCabin = (props) => {
     setLanternLit(true);
   };
 
-  const attemptEscape = () => {
-    if (hasEscapeKey && hasVictimList) {
-      victory();
+ 
+
+  const updateObjectives = (index) => {
+    const updatedRoom = { ...currentRoom };
+    updatedRoom.objectives[index].completed = !updatedRoom?.objectives[index].completed;
+    setCurrentRoom(updatedRoom);
+  };
+
+  const checkForUpdates = () => {
+    if (hasEscapeKey) {
+      updateObjectives(1)
+    } else if (hasVictimList) {
+      updateObjectives(0)
     }
   };
 
+  useEffect(() => {
+    checkForUpdates();
+  }, [hasVictimList, hasEscapeKey]);
+
   return (
     <>
-      <div className={lanternLit ? "roomLit": "roomDrk"}>
+      <div className={lanternLit ? "roomLit" : "roomDrk"}>
         <Lockbox
           combination={[1, 2, 3, 5]}
           lockboxType={"Victim's Box"}
@@ -72,11 +87,11 @@ const AbandonedCabin = (props) => {
           setLockboxOpened={setEscapeBoxOpened}
         />
         {hasEscapeKey && hasVictimList ? (
-          <button className="escBtn" onClick={attemptEscape}>
+          <button className="escBtn" onClick={victory}>
             ESCAPE!
           </button>
         ) : (
-          <button className="escBtnDis" disabled onClick={attemptEscape}>
+          <button className="escBtnDis" disabled>
             ESCAPE!
           </button>
         )}

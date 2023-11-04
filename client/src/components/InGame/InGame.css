@@ -7,11 +7,41 @@
 }
 
 .inGameMenu {
-    height: 100%;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+.exitMenu {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.exitMenu > button {
+    color: white;
+    width: 30vh;
+    height: 5vh;
+    border-radius: 15px;
+    background-color: red;
+}
+
+.objectives {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.objectivesButton {
+    width: 30vh;
+    height: 5vh;
+    border-radius: 15px;
 }
 
 .inGameFooter {

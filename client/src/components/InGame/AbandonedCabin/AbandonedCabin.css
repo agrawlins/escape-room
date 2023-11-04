@@ -1,43 +1,79 @@
-.lockbox {
+.lockboxContainer {
+    height: 75vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+}
+
+.lockbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .numberSection {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .roomLit {
-    
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .roomDrk {
-    opacity: 5%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 5%;
+}
+
+.image-container {
+  position: relative;
+  height: 15vh;
+  width: 100%;
+  transition: 1s ease-in;
+}
+
+.lantern {
+  position: absolute;
+  top: 15%;
+  left: 28%;
+
+  height: 20vh;
+}
+
+.fire {
+  position: absolute;
+  top: 25%;
+  left: 44%;
+  height: 5vh;
+  opacity: 50%;
+  box-shadow: 0 0 40px antiquewhite, 0 0 80px antiquewhite;
 }
 
 .upBtn {
-    
 }
 
 .dnBtn {
-    rotate: 180deg;
+  rotate: 180deg;
 }
 
 .openBtn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .escBtn {
-
 }
 
 .escBtnDis {
-    opacity: 50%;
+  opacity: 50%;
 }

@@ -16,6 +16,7 @@ const Lockbox = (props) => {
     setObjective,
     lockboxType,
     combination,
+    setDisplayArraySelection,
   } = props;
 
   const attemptOpen = () => {
@@ -27,9 +28,9 @@ const Lockbox = (props) => {
       lockboxNum4 === combination[3]
     ) {
       setLockboxOpened(true);
-      setObjective(true)
+      setObjective(true);
       alert(`The ${lockboxType} opened!`);
-      alert(`You acquired a ${objective}`)
+      alert(`You acquired a ${objective}`);
     } else if (lockboxOpened) {
       alert("There's nothing of interest left in here...");
     } else {
@@ -38,15 +39,18 @@ const Lockbox = (props) => {
   };
 
   return (
-    <div className="lockbox">
-      <h1>{lockboxType}</h1>
-      <div className="numberSection">
-        <NumberSlot lockboxNum={lockboxNum1} setLockboxNum={setLockboxNum1} />
-        <NumberSlot lockboxNum={lockboxNum2} setLockboxNum={setLockboxNum2} />
-        <NumberSlot lockboxNum={lockboxNum3} setLockboxNum={setLockboxNum3} />
-        <NumberSlot lockboxNum={lockboxNum4} setLockboxNum={setLockboxNum4} />
+    <div className="lockboxContainer">
+      <div className="lockbox">
+        <h1>{lockboxType}</h1>
+        <div className="numberSection">
+          <NumberSlot lockboxNum={lockboxNum1} setLockboxNum={setLockboxNum1} />
+          <NumberSlot lockboxNum={lockboxNum2} setLockboxNum={setLockboxNum2} />
+          <NumberSlot lockboxNum={lockboxNum3} setLockboxNum={setLockboxNum3} />
+          <NumberSlot lockboxNum={lockboxNum4} setLockboxNum={setLockboxNum4} />
+        </div>
+        <button className="openBtn" onClick={attemptOpen}></button>
       </div>
-      <button className="openBtn" onClick={attemptOpen}></button>
+        <button onClick={() => setDisplayArraySelection(0)}>Back</button>
     </div>
   );
 };

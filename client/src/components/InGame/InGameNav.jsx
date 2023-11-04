@@ -11,20 +11,19 @@ import "./InGame.css";
 const InGameNav = () => {
   const { currentRoom, currentTime, setCurrentTime } = useContext(RoomContext);
   const { name, timeLimit } = currentRoom;
-  const [menuToggle, setMenuToggle] = useState(false);
   const [timer, setTimer] = useState(timeLimit);
   const navigate = useNavigate()
 
   const roomSelector = () => {
     switch (name.toLowerCase()) {
       case "abandoned cabin":
-        return <AbandonedCabin victory={victoryFunction}/>;
+        return <AbandonedCabin victory={victoryFunction} gameOver={gameOverFunction}/>;
       case "dark castle":
-        return <DarkCastle victory={victoryFunction}/>;
+        return <DarkCastle victory={victoryFunction} gameOver={gameOverFunction}/>;
       case "deep ocean":
-        return <DeepOcean victory={victoryFunction}/>;
+        return <DeepOcean victory={victoryFunction} gameOver={gameOverFunction}/>;
       case "office noir":
-        return <OfficeNoir victory={victoryFunction}/>;
+        return <OfficeNoir victory={victoryFunction} gameOver={gameOverFunction}/>;
     }
   };
 
@@ -75,23 +74,8 @@ const InGameNav = () => {
   return (
     <div className="inGame">
       <h1>{name}</h1>
-      {menuToggle ? (
-        <InGameMenu setMenuToggle={setMenuToggle} />
-      ) : (
-        <>{roomSelector()}</>
-      )}
-      <div className="inGameFooter">
-        {menuToggle ? (
-          <button onClick={() => setMenuToggle(!menuToggle)}>
-            Back to Game
-          </button>
-        ) : (
-          <button onClick={() => setMenuToggle(!menuToggle)}>Menu</button>
-        )}
+        {roomSelector()}
         <p>{formattedTime}</p>
-        <button onClick={gameOverFunction}>Trigger Game Over</button>
-        <button onClick={victoryFunction}>Trigger Victory</button>
-      </div>
     </div>
   );
 };

@@ -5,25 +5,39 @@ import DeepOcean from "./DeepOcean/DeepOcean";
 import OfficeNoir from "./OfficeNoir/OfficeNoir";
 import { RoomContext } from "../../context/RoomProvider";
 import InGameMenu from "./InGameMenu";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import "./InGame.css";
+import CabinProvider from "./AbandonedCabin/CabinContext";
 
 const InGameNav = () => {
   const { currentRoom, currentTime, setCurrentTime } = useContext(RoomContext);
   const { name, timeLimit } = currentRoom;
   const [timer, setTimer] = useState(timeLimit);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const roomSelector = () => {
     switch (name.toLowerCase()) {
       case "abandoned cabin":
-        return <AbandonedCabin victory={victoryFunction} gameOver={gameOverFunction}/>;
+        return (
+          <CabinProvider>
+            <AbandonedCabin
+              victory={victoryFunction}
+              gameOver={gameOverFunction}
+            />
+          </CabinProvider>
+        );
       case "dark castle":
-        return <DarkCastle victory={victoryFunction} gameOver={gameOverFunction}/>;
+        return (
+          <DarkCastle victory={victoryFunction} gameOver={gameOverFunction} />
+        );
       case "deep ocean":
-        return <DeepOcean victory={victoryFunction} gameOver={gameOverFunction}/>;
+        return (
+          <DeepOcean victory={victoryFunction} gameOver={gameOverFunction} />
+        );
       case "office noir":
-        return <OfficeNoir victory={victoryFunction} gameOver={gameOverFunction}/>;
+        return (
+          <OfficeNoir victory={victoryFunction} gameOver={gameOverFunction} />
+        );
     }
   };
 
@@ -48,11 +62,11 @@ const InGameNav = () => {
 
   useEffect(() => {
     let interval;
-    setCurrentTime(timer)
+    setCurrentTime(timer);
     if (timer > 0) {
       interval = setInterval(() => {
         setTimer(timer - 1);
-        setCurrentTime(timer - 1)
+        setCurrentTime(timer - 1);
       }, 1000);
     } else {
       // Trigger game over function here
@@ -64,18 +78,18 @@ const InGameNav = () => {
   }, [timer]);
 
   const gameOverFunction = () => {
-    navigate('/gameover')
+    navigate("/gameover");
   };
 
   const victoryFunction = () => {
-    navigate('/victory')
+    navigate("/victory");
   };
 
   return (
     <div className="inGame">
       <h1>{name}</h1>
-        {roomSelector()}
-        <p>{formattedTime}</p>
+      {roomSelector()}
+      <p>{formattedTime}</p>
     </div>
   );
 };

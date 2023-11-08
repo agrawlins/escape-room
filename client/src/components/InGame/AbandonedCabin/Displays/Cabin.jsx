@@ -1,7 +1,6 @@
 import Lantern from "../Assets/Images/Lantern.png";
 import Fire from "../Assets/Images/Fire.gif";
 
-
 const Cabin = (props) => {
   const {
     hasMatches,
@@ -11,8 +10,13 @@ const Cabin = (props) => {
     setDisplayArraySelection,
     hasEscapeKey,
     hasVictimList,
+    escapeCombo,
+    victimCombo,
     victory,
+    setVictimsHintSelection,
+    setEscapeHintSelection,
   } = props;
+
   const acquireMatches = () => {
     if (!hasMatches) {
       setHasMatches(true);
@@ -26,6 +30,11 @@ const Cabin = (props) => {
       alert("You need a match...");
     }
   };
+
+  const selectHint = (display, hintValue, hintIndex, setHintSelection) => {
+    setHintSelection(hintValue)
+    setDisplayArraySelection(display)
+  }
 
   return (
     <>
@@ -47,7 +56,6 @@ const Cabin = (props) => {
           <></>
         )}
       </>
-
       <div>
         <button onClick={() => setDisplayArraySelection(1)}>
           Victim's Box
@@ -60,6 +68,22 @@ const Cabin = (props) => {
           Matches
         </button>
         <button onClick={() => setDisplayArraySelection(2)}>Escape Box</button>
+      </div>
+      <div className="hintsContainer">
+        <div className="hintsCollection">
+          <label>Victim's Box</label>
+          <button onClick={() => selectHint(3, 0, victimCombo[0], setVictimsHintSelection)}>Hint #1</button>
+          <button onClick={() => selectHint(3, 1, victimCombo[1], setVictimsHintSelection)}>Hint #2</button>
+          <button onClick={() => selectHint(3, 2, victimCombo[2], setVictimsHintSelection)}>Hint #3</button>
+          <button onClick={() => selectHint(3, 3, victimCombo[3], setVictimsHintSelection)}>Hint #4</button>
+        </div>
+        <div className="hintsCollection">
+          <label>Escape Box</label>
+          <button onClick={() => selectHint(4, 0, escapeCombo[0], setEscapeHintSelection)}>Hint #1</button>
+          <button onClick={() => selectHint(4, 1, escapeCombo[1], setEscapeHintSelection)}>Hint #2</button>
+          <button onClick={() => selectHint(4, 2, escapeCombo[2], setEscapeHintSelection)}>Hint #3</button>
+          <button onClick={() => selectHint(4, 3, escapeCombo[3], setEscapeHintSelection)}>Hint #4</button>
+        </div>
       </div>
       <button
         disabled={hasEscapeKey && hasVictimList ? null : "disabled"}

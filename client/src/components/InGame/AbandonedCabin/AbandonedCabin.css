@@ -77,3 +77,13 @@
 .escBtnDis {
   opacity: 50%;
 }
+
+.hintsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hintsCollection {
+  display: flex;
+  flex-direction: column;
+}

@@ -80,11 +80,11 @@ const Hint = (props) => {
         case 3:
           return"The luck of the Irish, indeed! I was lucky enough to spot a fellow, blissfully dancing along the railroad tracks. No one told him that the third rail was electrified..."
         case 4:
-          return`"April fools, right?" That's what my latest victim kept asking`
+          return`"April fools, right?" That's what my latest victim kept asking...`
         case 5:
-          return"The"
+          return"Question: What's best thing about May flowers? Answer: They're excellent for decorating graves...'"
         case 6:
-          return"June 4th, 1974"
+          return"I watched a poor fellow run over his foot with a lawn mower. The trim looked so nice, I decided to help him the rest of the way..."
         case 7:
           return"July 4th, 1974"
         case 8:

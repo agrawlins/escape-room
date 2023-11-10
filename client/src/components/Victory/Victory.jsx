@@ -22,7 +22,7 @@ const Victory = () => {
         <>
             <h1>Victory</h1>
             <h2>You made it!</h2>
-            <button onClick={mainMenuReturn}>Return to Main Menu</button>
+            <button onClick={mainMenuReturn}>Main Menu</button>
         </>
     )
 }

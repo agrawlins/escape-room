@@ -44,6 +44,36 @@
     border-radius: 15px;
 }
 
+.timer {
+    color: white;
+    text-shadow: 0 0 10px white,
+    0 0 20px white;
+}
+
+.timerEnd {
+    color: red;
+    text-shadow: 0 0 20px red, 0 0 40px red;
+    animation: flashing 0.5s infinite alternate;
+  }
+  
+  @keyframes flashing {
+    100% {
+      opacity: 1;
+    }
+    0% {
+      opacity: 0;
+    }
+  }
+  
+  /* @keyframes glowing {
+    0% {
+      text-shadow: 0 0 10px red, 0 0 20px red;
+    }
+    100% {
+      text-shadow: 0 0 15px red, 0 0 25px red;
+    }
+  } */
+
 .inGameFooter {
     width: 100%;
     display: flex;

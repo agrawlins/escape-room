@@ -49,9 +49,8 @@ const InGameNav = () => {
     const minutes = Math.floor((seconds % 3600) / 60);
     const remainingSeconds = seconds % 60;
     const hoursText = hours > 0 ? `${hours} hour${hours > 1 ? "s" : ""}` : "00";
-    const minutesText = minutes > 0 ? `${minutes}` : "0"; // Add leading zero if necessary
-    const secondsText =
-      remainingSeconds > 0 ? `${remainingSeconds}`.padStart(2, "0") : "00"; // Ensure two-digit format
+    const minutesText = minutes > 0 ? `${minutes}`.padStart(2, "0") : "00"; // Add leading zero if necessary
+    const secondsText = remainingSeconds > 0 ? `${remainingSeconds}`.padStart(2, "0") : "00"; // Ensure two-digit format
     const timeArray = [hoursText, minutesText, secondsText];
     if (timeArray.length === 0) {
       return "0";
@@ -67,12 +66,14 @@ const InGameNav = () => {
       interval = setInterval(() => {
         setTimer(timer - 1);
         setCurrentTime(timer - 1);
+        //Play Tick Sound
+        if (timer < 10) "" // Play Warning Sound
+        if (timer < 1) "" // Play Warning & Danger Sound
       }, 1000);
     } else {
       // Trigger game over function here
       gameOverFunction();
     }
-
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
   }, [timer]);
@@ -89,7 +90,7 @@ const InGameNav = () => {
     <div className="inGame">
       <h1>{name}</h1>
       {roomSelector()}
-      <p>{formattedTime}</p>
+      <p className={currentTime > 10 ? "timer" : "timerEnd"}>{formattedTime}</p>
     </div>
   );
 };

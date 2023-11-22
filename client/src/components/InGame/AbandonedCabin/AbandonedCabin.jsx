@@ -10,26 +10,29 @@ import { CabinContext } from "./CabinContext";
 
 const AbandonedCabin = (props) => {
   const { victory, gameOver } = props;
-  const { currentRoom, setCurrentRoom } = useContext(RoomContext);
-  const {hasEscapeKey, setHasEscapeKey} = useContext(CabinContext);
-  const {hasVictimList, setHasVictimList} = useContext(CabinContext);
-  const {escapeBoxOpened, setEscapeBoxOpened} = useContext(CabinContext);
-  const {victimsListBoxOpened, setVictimsListBoxOpened} = useContext(CabinContext);
-  const {lanternLit, setLanternLit} = useContext(CabinContext);
-  const {hasMatches, setHasMatches} = useContext(CabinContext);
-  const {victimsBoxCombination, setVictimsBoxCombination} = useContext(CabinContext);
-  const {victimsBoxNum1, setVictimsBoxNum1} = useContext(CabinContext);
-  const {victimsBoxNum2, setVictimsBoxNum2} = useContext(CabinContext);
-  const {victimsBoxNum3, setVictimsBoxNum3} = useContext(CabinContext);
-  const {victimsBoxNum4, setVictimsBoxNum4} = useContext(CabinContext);
-  const {escapeBoxCombination, setEscapeBoxCombination} = useContext(CabinContext);
-  const {escapeBoxNum1, setEscapeBoxNum1} = useContext(CabinContext);
-  const {escapeBoxNum2, setEscapeBoxNum2} = useContext(CabinContext);
-  const {escapeBoxNum3, setEscapeBoxNum3} = useContext(CabinContext);
-  const {escapeBoxNum4, setEscapeBoxNum4} = useContext(CabinContext);
-  const {menuToggle, setMenuToggle} = useContext(CabinContext);
-  const {victimsHintSelection, setVictimsHintSelection} = useContext(CabinContext);
-  const {escapeHintSelection, setEscapeHintSelection} = useContext(CabinContext);
+  const {currentRoom, setCurrentRoom} = useContext(RoomContext)
+  const {
+    hasEscapeKey, setHasEscapeKey,
+    hasVictimList, setHasVictimList,
+    escapeBoxOpened, setEscapeBoxOpened,
+    victimsListBoxOpened, setVictimsListBoxOpened,
+    lanternLit, setLanternLit,
+    hasMatches, setHasMatches,
+    victimsBoxCombination, setVictimsBoxCombination,
+    victimsBoxNum1, setVictimsBoxNum1,
+    victimsBoxNum2, setVictimsBoxNum2,
+    victimsBoxNum3, setVictimsBoxNum3,
+    victimsBoxNum4, setVictimsBoxNum4,
+    escapeBoxCombination, setEscapeBoxCombination,
+    escapeBoxNum1, setEscapeBoxNum1,
+    escapeBoxNum2, setEscapeBoxNum2,
+    escapeBoxNum3, setEscapeBoxNum3,
+    escapeBoxNum4, setEscapeBoxNum4,
+    menuToggle, setMenuToggle,
+    victimsHintSelection, setVictimsHintSelection,
+    escapeHintSelection, setEscapeHintSelection
+  } = useContext(CabinContext);
+ 
   const [displayArraySelection, setDisplayArraySelection] = useState(0);
   const navigate = useNavigate();
   const [victimsHintArray, setVictimsHintArray] = useState([
@@ -146,8 +149,7 @@ const AbandonedCabin = (props) => {
 
   const updateObjectives = (index) => {
     const updatedRoom = { ...currentRoom };
-    updatedRoom.objectives[index].completed =
-      !updatedRoom?.objectives[index].completed;
+    updatedRoom.objectives[index].completed = !updatedRoom?.objectives[index].completed;
     setCurrentRoom(updatedRoom);
   };
 

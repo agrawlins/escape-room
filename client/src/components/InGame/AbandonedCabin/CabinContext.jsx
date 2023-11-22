@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
+import { RoomContext } from "../../../context/RoomProvider";
 
 export const CabinContext = React.createContext();
 
 const CabinProvider = (props) => {
+  const {currentRoom} = useContext(RoomContext)
   const [hasEscapeKey, setHasEscapeKey] = useState(false);
   const [hasVictimList, setHasVictimList] = useState(false);
   const [escapeBoxOpened, setEscapeBoxOpened] = useState(false);
@@ -22,6 +24,13 @@ const CabinProvider = (props) => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [victimsHintSelection, setVictimsHintSelection] = useState(0);
   const [escapeHintSelection, setEscapeHintSelection] = useState(0);
+  const [hintLocation, setHintLocation] = useState(Math.floor(Math.random() * 3))
+  const [falseHint1, setFalseHint1] = useState(Math.floor(Math.random() * 10))
+  const [falseHint2, setFalseHint2] = useState(Math.floor(Math.random() * 10))
+  const [falseHint3, setFalseHint3] = useState(Math.floor(Math.random() * 10))
+  const [falseHint4, setFalseHint4] = useState(Math.floor(Math.random() * 10))
+  const [objectives, setObjectives] = useState(currentRoom)
+
 
   return (
     <CabinContext.Provider
@@ -42,9 +51,15 @@ const CabinProvider = (props) => {
         victimsBoxNum4,
         escapeHintSelection,
         victimsHintSelection,
+        hintLocation,
         menuToggle,
         lanternLit,
         hasMatches,
+        falseHint1,
+        falseHint2,
+        falseHint3,
+        falseHint4,
+        objectives,
         setHasEscapeKey,
         setHasVictimList,
         setEscapeBoxOpened,
@@ -64,6 +79,7 @@ const CabinProvider = (props) => {
         setMenuToggle,
         setLanternLit,
         setHasMatches,
+        setObjectives
       }}
     >
       {props.children}
